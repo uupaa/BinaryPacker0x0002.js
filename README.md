@@ -27,9 +27,8 @@ var source = {
         pixels: new Uint8Array([1,2,3,4,5])
     };
 
-var bp = new BinaryPacker();
-var packed = bp.pack(source, formatID);
-var result = bp.unpack(packed);
+var packed = BinaryPacker.pack(source, formatID);
+var result = BinaryPacker.unpack(packed);
 
 if ( source.x === result.x &&
      source.y === result.y &&

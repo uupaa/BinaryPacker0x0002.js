@@ -24,9 +24,9 @@ function testBinaryPacker0x0002(test, pass, miss) {
             pixels: new Uint8Array([1,2,3,4,5])
         };
 
-    var bp = new BinaryPacker();
-    var packed = bp.pack(source, formatID);
-    var result = bp.unpack(packed);
+    var packed = BinaryPacker.pack(source, formatID);
+    var result = BinaryPacker.unpack(packed);
+    var bytes  = BinaryPacker.getBytes(source, formatID);
 
     if (source.x === result.x &&
         source.y === result.y &&
@@ -41,11 +41,12 @@ function testBinaryPacker0x0002(test, pass, miss) {
         source.pixels[3] === result.pixels[3] &&
         source.pixels[4] === result.pixels[4]) {
 
-        test.done(pass());
-    } else {
-        test.done(miss());
-        console.log("ERROR");
+        if (bytes === 22 + source.pixels.length) {
+            test.done(pass());
+            return;
+        }
     }
+    test.done(miss());
 }
 
 })((this || 0).self || global);
