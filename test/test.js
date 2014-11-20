@@ -26,7 +26,7 @@ function testBinaryPacker0x0002(test, pass, miss) {
 
     var packed = BinaryPacker.pack(source, formatID);
     var result = BinaryPacker.unpack(packed);
-    var bytes  = BinaryPacker.getBytes(source, formatID);
+    var bodyLength = BinaryPacker.getBodyLength(source, formatID);
 
     if (source.x === result.x &&
         source.y === result.y &&
@@ -41,7 +41,7 @@ function testBinaryPacker0x0002(test, pass, miss) {
         source.pixels[3] === result.pixels[3] &&
         source.pixels[4] === result.pixels[4]) {
 
-        if (bytes === 22 + source.pixels.length) {
+        if (bodyLength === 14 + source.pixels.length) {
             test.done(pass());
             return;
         }
