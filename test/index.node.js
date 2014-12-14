@@ -1,8 +1,9 @@
 require("../node_modules/uupaa.binarypacker.js/lib/BinaryPacker.js");
+require("../../WebModule/lib/Reflection.js");
 require("../../WebModule/lib/Console.js");
-require("../../WebModule/lib/Help.js");
 require("../../WebModule/lib/Valid.js");
-require("../../WebModule/lib/TestTask.js");
+require("../../WebModule/lib/Help.js");
+require("../../WebModule/lib/Task.js");
 require("../../WebModule/lib/Test.js");
 require("../lib/BinaryPacker0x0002.js");
 require("../release/BinaryPacker0x0002.min.js");
